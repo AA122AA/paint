@@ -1,5 +1,9 @@
-circle
-square
-rectangle
-triangle 
-line 
+circle, 0, 0, 600, 600, 3, yellow, black
+circle, 150, 100, 250, 200, 3, white, black
+circle, 350, 100, 450, 200, 3, white, black
+circle, 170, 120, 200, 150, 3, black, black
+circle, 370, 120, 400, 150, 3, black, black
+
+arc, 200, 400, 400, 450, 0, -180, black, red, 2
+
+

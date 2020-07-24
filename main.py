@@ -3,6 +3,7 @@ from shapes.line import Line
 from shapes.oval import Oval
 from shapes.rectangle import Rectangle
 from shapes.triangle import Triangle
+from shapes.arc import Arc
 
 def main():
     root = Tk()
@@ -10,8 +11,8 @@ def main():
     root.mainloop()
 
 def create_canvas(root):
-    w = 600
-    h = 400
+    w = 1000
+    h = 700
     canvas = Canvas(root, width=w, height=h, bg='white')
     canvas.pack()
     return canvas
@@ -25,19 +26,20 @@ def paint(canvas):
     text = read_file()
     for line in text:
         if "rcl" in line or "va" in line:
-            Oval(canvas)
-        elif "ua" in line or "sq" in line:
-            Rectangle(canvas)
+            prop = line.split(", ")
+            Oval(canvas, prop[1], prop[2], prop[3], prop[4], prop[5], prop[6], prop[7])
+        elif "ua" in line or "rect" in line:
+            prop = line.split(", ")
+            Rectangle(canvas, prop[1], prop[2], prop[3], prop[4], prop[5], prop[6], prop[7])
         elif "tri" in line:
-            Triangle(canvas)
+            prop = line.split(", ")
+            Triangle(canvas, prop[1], prop[2], prop[3], prop[4], prop[5], prop[6], prop[7], prop[8], prop[9])
         elif "in" in line:
-            Line(canvas)
-
-
-# Line(canvas)
-# Oval(canvas)
-# Rectangle(canvas)
-# Triangle(canvas)
+            prop = line.split(", ")
+            Line(canvas, prop[1], prop[2], prop[3], prop[4], prop[5], prop[6])
+        elif "arc" in line:
+            prop = line.split(", ")
+            Arc(canvas, prop[1], prop[2], prop[3], prop[4], prop[5], prop[6], prop[7], prop[8], prop[9])
 
 if __name__ == "__main__":
     main()
